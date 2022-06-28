@@ -1,2 +1,4 @@
+^renv$
+^renv\.lock$
 ^mBAT\.Rproj$
 ^\.Rproj\.user$
