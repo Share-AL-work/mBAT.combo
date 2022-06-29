@@ -1,10 +1,10 @@
 Package: mBAT
-Title: What the Package Does (One Line, Title Case)
+Title: mBAT-combo: a more powerful test to detect gene-trait associations from GWAS data
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+    person("Ang", "Li", , "ang.li@uq.edu.au", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-1186-3448"))
+Description: Gene-based association tests aggregate multiple SNP-trait associations into sets defined by gene boundaries. Since genes have a direct biological link to downstream function, gene-based test results are widely used in post-GWAS analysis. A common approach for gene-based tests is to combine SNPs associations by computing the sum of χ^2 statistics. However, this strategy ignores the directions of SNP effects, which could result in a loss of power for SNPs with masking effects (e.g., when the product of the effects of two SNPs and their linkage disequilibrium (LD) correlation is negative). Here, we introduce “mBAT-combo”, a new set-based test that is better powered than other methods to detect multi-SNP associations in the context of masking effects. 
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
 Encoding: UTF-8
@@ -14,3 +14,6 @@ Imports:
     dplyr,
     data.table,
     survey
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3

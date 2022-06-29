@@ -35,33 +35,33 @@ devtools::install_github("Share-AL-work/mBAT.combo")
 This is a basic example which shows you how to solve a common problem:
 
 ``` r
-#library(mBAT)
-## basic example code
+#library(mBAT.combo)
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+## 1. set path
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+path <- system.file("extdata",package = "mBAT")
+list.files(path)
+#> character(0)
+
+bim_file <- paste0(path,"/","Chr19_ABHD17A.txt")
+gene_sum_file <- paste0(path,"/","Chr19_ABHD17A.txt")
+LD_file_prefix <- paste0(path,"/","Chr19_ABHD17A.txt.ldm.full")
+fastBAT_file <- paste0(path,"/","noDT_Vitamin_D_Chr19.gene.fastbat")
 ```
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/v1/examples>.
+## 2. Do analysis
 
-You can also embed plots, for example:
+``` r
+#res <- mBAT::mBAT(bim_file,
+#                       map_file,
+##                       assoc_file,
+#                       inLD_prefix,
+#                       result_path,
+ #                      fastBAT_output)
+#head(res)
+```
 
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
+\#n that case, don’t forget to commit and push the resulting figure
 files, so they display on GitHub and CRAN.
