@@ -6,11 +6,11 @@
 #' @export
 #'
 #' @examples
-ReadLDMbin = function(prefix) {
-  InfoFile = paste(prefix,".info",sep="")
-  BinFile = paste(prefix,".bin",sep="")
-  info = read.table(InfoFile, header=T)
-  m = as.numeric(dim(info)[1])
-  ldm = matrix(readBin(BinFile, n=m*m, what=numeric(0), size=4), nrow=m)
+ReadLDMbin <- function(prefix) {
+  InfoFile <- paste(prefix,".info",sep="")
+  BinFile <- paste(prefix,".bin",sep="")
+  info <- read.table(InfoFile, header=T)
+  m <- as.numeric(dim(info)[1])
+  ldm <- matrix(readBin(BinFile, n=m*m, what=numeric(0), size=4), nrow=m)
   return(ldm)
 }
