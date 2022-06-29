@@ -7,9 +7,11 @@
 #' @export
 
 utils::globalVariables(
-  c(".", "snp", "chr", "pos", "A1", "A2",
+  c(
+    ".", "snp", "chr", "pos", "A1", "A2",
     "gene", "gene.start", "gene.end",
-    "p","AF1")
+    "p", "AF1"
+  )
 )
 
 columns_check <- function(df, columns) {
@@ -18,8 +20,8 @@ columns_check <- function(df, columns) {
   diff_columns <- setdiff(columns, df_columns)
   if (length(diff_columns) > 0) {
     stop("'", df_name, "' doesn't have column(s): ",
-         paste(diff_columns, collapse = ", "), ".",
-         call. = FALSE
+      paste(diff_columns, collapse = ", "), ".",
+      call. = FALSE
     )
   }
 }
@@ -29,7 +31,8 @@ df_check <- function(df) {
   df_name <- deparse(substitute(df))
   if (!is.data.frame(df)) {
     stop("'", df_name, "' is not a data frame.",
-         call. = FALSE)
+      call. = FALSE
+    )
   }
 }
 
@@ -44,22 +47,26 @@ named_list_check <- function(x) {
   x_colnames <- names(x)
   if (!is.list(x) || is.null(x_colnames) || anyDuplicated(x_colnames) > 0L) {
     stop("'", x_name,
-         "' must be a named list with an unique name for each set.",
-         call. = FALSE)
+      "' must be a named list with an unique name for each set.",
+      call. = FALSE
+    )
   }
 }
 
 nonneg_num_check <- function(x, arg) {
   if (!is.numeric(x) || is.na(x) || x < 0L || length(x) != 1L) {
     stop("'", arg, "' must be a non-negative number of length 1.",
-         call. = FALSE)
+      call. = FALSE
+    )
   }
 }
 
 num_between_check <- function(x, left, right, arg) {
   if (!is.numeric(x) || is.na(x) || x < left || x > right) {
     stop("'", arg, "' must be a number of length 1 between ",
-         left, " and ", right, ".", call. = FALSE)
+      left, " and ", right, ".",
+      call. = FALSE
+    )
   }
 }
 
@@ -70,7 +77,8 @@ integer_vector_check <- function(x, tol = .Machine$double.eps) {
     abs(x - round(x)) < tol && !is.na(x)
   }
   tryCatch(all(sapply(x, is_wholenumber, tol = tol)),
-           error = function(e) invisible(FALSE))
+    error = function(e) invisible(FALSE)
+  )
 }
 
 pretty_num <- function(x, ...) {
@@ -81,4 +89,3 @@ pretty_num <- function(x, ...) {
 if_dup_ind <- function(x) {
   which(duplicated(x) | duplicated(x, fromLast = TRUE))
 }
-
