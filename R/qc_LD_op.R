@@ -9,7 +9,7 @@
 #'
 #' @examples
 qc_LD_op <- function(gwas,LD,qc_snp_list){
-  snplist <- Reduce(intersect,list(gwas$SNP,qc_snp_list$snp))
+  snplist <- Reduce(intersect,list(gwas$snp,qc_snp_list$snp))
   #get the new order_position(id) of refLD snps (re-ordered according to common snps in gwas summary data).
   LD_qced_snp_id <- colnames(LD)[match(snplist,colnames(LD))]
   #LD re-ordered according to the order of common SNPs between gwas and refLD.

@@ -36,7 +36,7 @@ devtools::install_github("Share-AL-work/mBAT.combo")
 This is a basic example which shows you how to solve a common problem:
 
 ```{r example}
-#library(mBAT.combo)
+#library(mBAT)
 ```
 
 ## 1. set path
@@ -52,12 +52,21 @@ fastBAT_file <- paste0(path,"/","noDT_Vitamin_D_Chr19.gene.fastbat")
 
 ## 2. Do analysis
 ``` {r analysis}
-#res <- mBAT::mBAT(bim_file,
-#                       map_file,
-##                       assoc_file,
-#                       inLD_prefix,
-#                       result_path,
- #                      fastBAT_output)
+bim_file="/Users/uqali4/mBAT_development_R/mBAT.combo/inst/extdata/1000G_eur_unrel_ukbcom22.bim"
+map_file="/Users/uqali4/mBAT_development_R/mBAT.combo/inst/extdata/hg19_v40_glist_Pat_v1.txt"
+assoc_file="/Users/uqali4/mBAT_development_R/mBAT.combo/inst/extdata/Chr22.fastGWA.ma"
+LD_path="/Users/uqali4/mBAT_development_R/mBAT.combo/inst/extdata/LD_Chr22"
+result_path="/Users/uqali4/mBAT_development_R/mBAT.combo/inst/extdata"
+fastBAT_output="/Users/uqali4/mBAT_development_R/mBAT.combo/inst/extdata/fb_Chr22_1kg.gene.fastbat"
+prop=0.9
+#res <- mBAT_combo(bim_file,
+#                  map_file,
+#                  assoc_file,
+#                  LD_path,
+#                  result_path,
+#                  fastBAT_output,
+#                  prop,
+#                  gene_annotate)
 #head(res)
 ```
 
