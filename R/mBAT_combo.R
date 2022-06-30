@@ -51,7 +51,6 @@ mBAT_combo <- function(bim_file,
   fastBAT_file$Gene <- as.character(fastBAT_file$Gene)
 
   gene_list <- data.frame(Gene=unique(dt_ma$gene))
-  #gene_list = fastBAT_file%>%filter(chr==22)%>%select(Gene)
 
   all_res=NULL
   for(i in 1:nrow(gene_list)){

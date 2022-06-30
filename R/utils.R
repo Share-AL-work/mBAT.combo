@@ -8,7 +8,7 @@
 
 utils::globalVariables(
   c(
-    ".", "snp", "chr", "pos", "A1", "A2",
+    "snp", "chr", "pos", "A1", "A2",
     "gene", "gene.start", "gene.end",
     "p", "AF1"
   )
