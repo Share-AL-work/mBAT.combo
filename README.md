@@ -59,7 +59,7 @@ fastBAT_output <- paste0(path,"/","fb_Chr22_1kg.gene.fastbat")
 
 ``` r
 prop=0.9
-#res <- mBAT::mBAT_combo(bim_file,
+#res <- mBAT_combo(bim_file,
 #                  map_file,
 #                  assoc_file,
 #                  LD_path,
@@ -69,6 +69,3 @@ prop=0.9
 #                  gene_annotate)
 #head(res)
 ```
-
-\#n that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.

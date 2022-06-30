@@ -20,6 +20,14 @@ columns_check <- function(df, columns) {
 }
 
 
+#' Title
+#'
+#' @param df
+#'
+#' @return
+#' @export
+#'
+#' @examples
 df_check <- function(df) {
   df_name <- deparse(substitute(df))
   if (!is.data.frame(df)) {
@@ -30,6 +38,15 @@ df_check <- function(df) {
 }
 
 
+#' Title
+#'
+#' @param x
+#' @param arg
+#'
+#' @return
+#' @export
+#'
+#' @examples
 nonneg_num_check <- function(x, arg) {
   if (!is.numeric(x) || is.na(x) || x < 0L || length(x) != 1L) {
     stop("'", arg, "' must be a non-negative number of length 1.",
@@ -38,6 +55,17 @@ nonneg_num_check <- function(x, arg) {
   }
 }
 
+#' Title
+#'
+#' @param x
+#' @param left
+#' @param right
+#' @param arg
+#'
+#' @return
+#' @export
+#'
+#' @examples
 num_between_check <- function(x, left, right, arg) {
   if (!is.numeric(x) || is.na(x) || x < left || x > right) {
     stop("'", arg, "' must be a number of length 1 between ",
@@ -47,6 +75,15 @@ num_between_check <- function(x, left, right, arg) {
   }
 }
 
+#' Title
+#'
+#' @param x
+#' @param tol
+#'
+#' @return
+#' @export
+#'
+#' @examples
 integer_vector_check <- function(x, tol = .Machine$double.eps) {
   ## this is an empirical solution
   is_wholenumber <- function(x, tol = tol) {
@@ -58,11 +95,28 @@ integer_vector_check <- function(x, tol = .Machine$double.eps) {
   )
 }
 
+#' Title
+#'
+#' @param x
+#' @param ...
+#'
+#' @return
+#' @export
+#'
+#' @examples
 pretty_num <- function(x, ...) {
   prettyNum(x, big.mark = ",", scientific = FALSE, ...)
 }
 
 
+#' Title
+#'
+#' @param x
+#'
+#' @return
+#' @export
+#'
+#' @examples
 if_dup_ind <- function(x) {
   which(duplicated(x) | duplicated(x, fromLast = TRUE))
 }

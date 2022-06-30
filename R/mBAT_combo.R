@@ -99,10 +99,10 @@ mBAT_combo <- function(bim_file,
       }
     }
   }
-
+  return(all_res)
   setwd(result_path)
   print(getwd())
   write.table(all_res, file=paste0(result_path,"/mBAT_R_Chr",chr_name,".txt"), sep = "\t", row.names= F, col.names = T, quote = F)
-  return(all_res)
+
 }
 

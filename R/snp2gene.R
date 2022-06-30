@@ -30,7 +30,7 @@ snp2gene <- function(info_snp, info_gene,
          call. = FALSE)
   }
 
-  snpdat <- data.table(
+  snpdat <- data.table::data.table(
     snp = as.character(info_snp$snp),
     chr = as.character(info_snp$chr),
     start = as.integer(info_snp$pos),
@@ -38,7 +38,7 @@ snp2gene <- function(info_snp, info_gene,
     key = c("chr", "start", "end")
   )
 
-  genedat <- data.table(
+  genedat <- data.table::data.table(
     gene = as.character(info_gene$gene),
     chr = as.character(info_gene$chr),
     start = as.integer(
@@ -52,7 +52,7 @@ snp2gene <- function(info_snp, info_gene,
     key = c("chr", "start", "end")
   )
 
-  mapped <- foverlaps(snpdat, genedat, type = "within")
+  mapped <- data.table::foverlaps(snpdat, genedat, type = "within")
 
   snp_sets <- lapply(split(mapped[!is.na(gene), .(snp, gene)],
                            by = "gene", keep.by = FALSE),
@@ -61,7 +61,7 @@ snp2gene <- function(info_snp, info_gene,
   if (only_sets) {
     list(sets = snp_sets)
   } else {
-    setnames(mapped,
+    data.table::setnames(mapped,
              old = c("start", "end", "i.start"),
              new = c("gene.adj.start", "gene.adj.end", "pos"))
 
@@ -70,7 +70,7 @@ snp2gene <- function(info_snp, info_gene,
                "gene.adj.start", "gene.adj.end")
 
     list(sets = snp_sets,
-         map = setDF(setorder(mapped[, vkeep, with = FALSE],
+         map = data.table::setDF(setorder(mapped[, vkeep, with = FALSE],
                               chr, gene.start, gene.end, pos,
                               na.last = TRUE)))
   }
