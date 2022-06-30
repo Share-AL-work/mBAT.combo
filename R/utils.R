@@ -6,13 +6,6 @@
 #' @return
 #' @export
 
-utils::globalVariables(
-  c(
-    "snp", "chr", "pos", "A1", "A2",
-    "gene", "gene.start", "gene.end",
-    "p", "AF1"
-  )
-)
 
 columns_check <- function(df, columns) {
   df_name <- deparse(substitute(df))
@@ -36,22 +29,6 @@ df_check <- function(df) {
   }
 }
 
-tf_check <- function(x, arg_name) {
-  if (!(is.logical(x) && length(x) == 1L && !is.na(x))) {
-    stop("'", arg_name, "' must be TRUE or FALSE.", call. = FALSE)
-  }
-}
-
-named_list_check <- function(x) {
-  x_name <- deparse(substitute(x))
-  x_colnames <- names(x)
-  if (!is.list(x) || is.null(x_colnames) || anyDuplicated(x_colnames) > 0L) {
-    stop("'", x_name,
-      "' must be a named list with an unique name for each set.",
-      call. = FALSE
-    )
-  }
-}
 
 nonneg_num_check <- function(x, arg) {
   if (!is.numeric(x) || is.na(x) || x < 0L || length(x) != 1L) {
