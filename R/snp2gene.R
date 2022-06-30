@@ -30,7 +30,7 @@ snp2gene <- function(info_snp, info_gene,
          call. = FALSE)
   }
 
-  snpdat <- data.table::data.table(
+  snpdat <- data.table(
     snp = as.character(info_snp$snp),
     chr = as.character(info_snp$chr),
     start = as.integer(info_snp$pos),
@@ -38,7 +38,7 @@ snp2gene <- function(info_snp, info_gene,
     key = c("chr", "start", "end")
   )
 
-  genedat <- data.table::data.table(
+  genedat <- data.table(
     gene = as.character(info_gene$gene),
     chr = as.character(info_gene$chr),
     start = as.integer(
