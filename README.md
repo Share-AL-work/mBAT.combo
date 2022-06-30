@@ -35,7 +35,7 @@ devtools::install_github("Share-AL-work/mBAT.combo")
 This is a basic example which shows you how to solve a common problem:
 
 ``` r
-#library(mBAT)
+library(mBAT)
 ```
 
 ## 1. set path
@@ -43,25 +43,23 @@ This is a basic example which shows you how to solve a common problem:
 ``` r
 path <- system.file("extdata",package = "mBAT")
 list.files(path)
-#> character(0)
+#> [1] "1000G_eur_unrel_ukbcom22.bim" "Chr22.fastGWA.ma"            
+#> [3] "fb_Chr22_1kg.gene.fastbat"    "hg19_v40_glist_Pat_v1.txt"   
+#> [5] "LD_Chr22"                     "mBAT_R_Chr22.txt"
 
-bim_file <- paste0(path,"/","Chr19_ABHD17A.txt")
-gene_sum_file <- paste0(path,"/","Chr19_ABHD17A.txt")
-LD_file_prefix <- paste0(path,"/","Chr19_ABHD17A.txt.ldm.full")
-fastBAT_file <- paste0(path,"/","noDT_Vitamin_D_Chr19.gene.fastbat")
+bim_file <- paste0(path,"/","1000G_eur_unrel_ukbcom22.bim")
+map_file <- paste0(path,"/","hg19_v40_glist_Pat_v1.txt")
+assoc_file <- paste0(path,"/","Chr22.fastGWA.ma")
+LD_path <- paste0(path,"/","LD_Chr22")
+#result_path <- paste0(path,"/","extdata")
+fastBAT_output <- paste0(path,"/","fb_Chr22_1kg.gene.fastbat")
 ```
 
 ## 2. Do analysis
 
 ``` r
-bim_file="/Users/uqali4/mBAT_development_R/mBAT.combo/inst/extdata/1000G_eur_unrel_ukbcom22.bim"
-map_file="/Users/uqali4/mBAT_development_R/mBAT.combo/inst/extdata/hg19_v40_glist_Pat_v1.txt"
-assoc_file="/Users/uqali4/mBAT_development_R/mBAT.combo/inst/extdata/Chr22.fastGWA.ma"
-LD_path="/Users/uqali4/mBAT_development_R/mBAT.combo/inst/extdata/LD_Chr22"
-result_path="/Users/uqali4/mBAT_development_R/mBAT.combo/inst/extdata"
-fastBAT_output="/Users/uqali4/mBAT_development_R/mBAT.combo/inst/extdata/fb_Chr22_1kg.gene.fastbat"
 prop=0.9
-#res <- mBAT_combo(bim_file,
+#res <- mBAT::mBAT_combo(bim_file,
 #                  map_file,
 #                  assoc_file,
 #                  LD_path,
