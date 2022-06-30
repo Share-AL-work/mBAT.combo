@@ -12,3 +12,4 @@ qc_gwas_op <- function(gwas,qc_snp_list) {
   gwas_qced <- gwas[match(snplist, gwas$snp),]
   return(gwas_qced)
 }
+
