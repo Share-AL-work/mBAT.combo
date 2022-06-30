@@ -62,7 +62,7 @@ prop=0.9
 #res <- mBAT_combo(bim_file,
 #                  map_file,
 #                  assoc_file,
-#                  LD_path,
+##                  LD_path,
 #                  result_path,
 #                  fastBAT_output,
 #                  prop,

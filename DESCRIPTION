@@ -13,7 +13,8 @@ RoxygenNote: 7.2.0
 Imports: 
     dplyr,
     data.table,
-    survey
+    survey,
+    utils
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

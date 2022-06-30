@@ -6,6 +6,11 @@
 #' @return
 #' @export
 
+utils::globalVariables(
+  c(".", "snp", "chr", "pos", "A1", "A2",
+    "gene", "gene.start", "gene.end",
+    "pvalue", "chisq")
+)
 
 columns_check <- function(df, columns) {
   df_name <- deparse(substitute(df))
