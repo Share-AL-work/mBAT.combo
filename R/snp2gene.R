@@ -30,15 +30,14 @@ snp2gene <- function(info_snp, info_gene,
          call. = FALSE)
   }
 
-  snpdat <- data.table(
+  snpdat <- data.frame(
     snp = as.character(info_snp$snp),
     chr = as.character(info_snp$chr),
     start = as.integer(info_snp$pos),
-    end = as.integer(info_snp$pos),
-    key = c("chr", "start", "end")
+    end = as.integer(info_snp$pos)
   )
 
-  genedat <- data.table(
+  genedat <- data.frame(
     gene = as.character(info_gene$gene),
     chr = as.character(info_gene$chr),
     start = as.integer(
@@ -48,8 +47,7 @@ snp2gene <- function(info_snp, info_gene,
     ),
     end = as.integer(info_gene$end + window_end * 1000),
     gene.start = as.integer(info_gene$start),
-    gene.end = as.integer(info_gene$end),
-    key = c("chr", "start", "end")
+    gene.end = as.integer(info_gene$end)
   )
 
   mapped <- foverlaps(snpdat, genedat, type = "within")
