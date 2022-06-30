@@ -4,7 +4,7 @@
 \alias{allele_flip_gwas_beta}
 \title{functions for allele flip and dif_AF1 >= 0.2}
 \usage{
-allele_flip_gwas_beta(gwas, info_LD)
+allele_flip_gwas_beta(gwas, info_LD, no_AF)
 }
 \arguments{
 \item{info_LD}{}

@@ -4,7 +4,16 @@
 \alias{mbat_SVD}
 \title{Function for mbat and mBAT-combo calculation with SVD}
 \usage{
-mbat_SVD(gwas_noqc_final, eig, prop, fastBAT_call, z, chr_name, ID)
+mbat_SVD(
+  gwas_noqc_final,
+  eig,
+  prop,
+  fastBAT_call,
+  z,
+  chr_name,
+  ID,
+  gene_annotate
+)
 }
 \arguments{
 \item{ID}{}
