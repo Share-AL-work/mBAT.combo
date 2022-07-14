@@ -26,7 +26,7 @@ mBAT_combo <- function(bim_file,
                        prop,
                        gene_annotate) {
   gene_annotate <- data.table::fread(map_file,h=F)
-  names(gene_annotate) <- c("chr","start","end","gene")
+  names(gene_pos)=c("chr","start","end","gene.id")
   #Read in original GWAS summary statistics in gene region.
   gwas_ori <- data.table::fread(assoc_file)
   #gwas_ori = read.table(assoc_file, sep = "", header = T, na.strings = "NA", stringsAsFactors = F)
@@ -34,7 +34,7 @@ mBAT_combo <- function(bim_file,
 
   bim <- data.table::fread(bim_file)
   names(bim) <- c("chr","snp","bp","pos","A1","A2")
-  snp2gene_ma <- snp2gene(
+  snp2gene_ma <- snpsettest::map_snp_to_gene(
     bim,
     gene_annotate,
     window_start = 50,
@@ -42,7 +42,7 @@ mBAT_combo <- function(bim_file,
     only_sets = FALSE
   )$map
 
-  dt <- dplyr::inner_join(bim%>%dplyr::mutate(chr = as.character(chr)),snp2gene_ma%>%dplyr::select("snp","chr","pos","gene"),by= c("chr", "snp", "pos"))%>%dplyr::select(snp,gene,chr)
+  dt <- dplyr::inner_join(bim%>%mutate(chr = as.character(chr)),snp2gene_ma%>%select("id","chr","pos","gene.id"))%>%rename(snp=id,gene=gene.id)%>%select(snp,gene,chr)
   dt <- na.omit(dt)
   dt_ma <- dplyr::inner_join(dt,gwas_ori,by="snp")
   # read in fastBAT pruning results including gene names
